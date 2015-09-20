@@ -1,0 +1,323 @@
+.inline {
+    display:inline;
+}
+
+.inline-block {
+    display:inline-block;
+}
+
+.clickable {
+    cursor:pointer;
+}
+
+.hidden {
+    display:none;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:#777;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#777;
+    opacity:1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#777;
+    opacity:1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:#777;
+}
+
+.intro {
+    padding:1em;
+}
+
+/* TODO: Some of this needs to be in the BankOnline specific CSS file, not here */
+ body {
+     background-color:darkgrey;
+     color:#333;
+     font-family: 'Open Sans', sans-serif;
+     font-size: 14px;
+ }
+
+.container {
+    max-width:1000px;
+    background-color:#FFFFFF;
+}
+
+/* Content Header */
+.content-header {
+    border-top: 5px solid darkred;
+}
+.logo-big {
+    margin:auto;
+    width:300px;
+    height:45px;
+    background:url(../images/rp_BankOnline.png) no-repeat;
+    background-size:300px 45px;
+}
+
+/* Page Footer */
+.powered-by-max-connector {
+    text-align:right;
+    width:1000px;
+    margin:0 auto;
+}
+.powered-by-max-connector a {
+    color:#428bca;
+    text-decoration:none;
+}
+.powered-by-max-connector a:hover {
+    color:#2a6496;
+    cursor:pointer
+text-decoration:underline;
+}
+.powered-by-max-connector img {
+    max-height:13px;
+    margin-top:-4px;
+}
+
+.confirm-button {
+    width: 225px;
+    margin: 0 auto;
+    padding: 2em;
+}
+.confirm-button .btn-success {
+    background-color:#666666;
+    border:none;
+}
+.confirm-button .btn-success:hover {
+    background-color: #5cb85c;
+    border: none;
+}
+
+.attribute-group {
+    padding-bottom:0;
+    margin-bottom:.5em;
+}
+
+.attribute-group-label {
+    border-bottom: 1px solid #D8D8D8;
+    color: #960000;
+    font-weight: 600;
+    margin-bottom: .5em;
+    padding-bottom: .5em;
+    padding-left: 1em;
+}
+
+.attribute-group-select-label {
+    padding-left: 1em;
+}
+.attribute-group-select {
+    padding-left: 1em;
+}
+.attribute-group-select select {
+    width:40em;
+}
+.attribute-group-add-label {
+    padding-left: 1em;
+    color: #428bca;
+    text-decoration: none;
+    margin-bottom: 2em;
+    display: block;
+    font-size: 12px;
+}
+.attribute-group-add-label:hover {
+    color: #2a6496;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.attribute-group-input-label {
+    display:inline-block;
+    padding-left:2em;
+    width: 35%;
+    height:2em;
+    vertical-align: top;
+}
+
+.attributes input[type=text] {
+    border: none;
+    background-color: whitesmoke;
+    border-bottom: 1px solid rgb(184, 128, 128);
+    padding-top: 2px;
+}
+
+.attributes select {
+    border: none;
+    background-color: whitesmoke;
+    border-bottom: 1px solid rgb(184, 128, 128);
+    padding-top: 2px;
+}
+
+.attributes .input-label {
+    padding-left:2em;
+    width: 35%;
+    height:2em;
+    vertical-align: top;
+}
+
+.attributes .input-field {
+    height:2em;
+}
+
+.attributes .input-field.indent {
+    margin-left:35%;
+}
+
+.first-name input {
+    width:157px;
+}
+
+.middle-name input {
+    width:157px;
+}
+
+.last-name input {
+    width:157px;
+}
+
+.address .attribute-group-input-label {
+    display:none;
+}
+
+.address input[type=text] {
+    width:30em;
+}
+
+.address .state .input-label {
+    margin-left: 35%;
+}
+
+.address .state input {
+    width:10em;
+}
+
+.address .zip input {
+    width:8em;
+}
+
+.area-code input {
+    width:5em;
+}
+
+.phone-number input {
+    width:11em;
+}
+
+.message.attribute-group {
+    text-align:center;
+    color:#BBBBBB;
+    font-size:12px;
+}
+
+.message.input-field {
+    color:#BBBBBB;
+    font-size:12px;
+}
+.message.input-field.right {
+    margin-left:5em;
+}
+
+.attribute-group.select-a-color {
+    width: 100%;
+}
+.select-a-color {
+    width: 64%;
+}
+.color-selector {
+    height: 5em;
+    overflow-y: auto;
+    width: 80%;
+}
+.color-selector .color {
+    height: 5em;
+}
+.color.black {
+    background-color: #000000;
+    color:white;
+}
+.color.white {
+    background-color: #FFFFFF;
+    color:black;
+}
+.color.orange {
+    background-color: #FF9900;
+    color:black;
+}
+.color.grey {
+    background-color: #AAAAAA;
+    color:black;
+}
+.color.red {
+    background-color: #FF0000;
+    color:black;
+}
+.color.green {
+    background-color: #008800;
+    color:black;
+}
+.color.blue {
+    background-color: #0000FF;
+    color:white;
+}
+.color.purple {
+    background-color: #9933FF;
+    color:white;
+}
+.color.yellow {
+    background-color: #FFFF00;
+    color:black;
+}
+.color.aqua {
+    background-color: #00FFFF;
+    color:black;
+}
+.color.pink {
+    background-color: #FFCCFF;
+    color:black;
+}
+.color.light-blue {
+    background-color: #0099FF;
+    color:black;
+}
+.color-label {
+    margin: 0 .5em;
+    text-align: center;
+}
+input[type=radio].color-radio {
+    display: none;
+}
+input[type=radio].color-radio + label.color-radio {
+    height: 4em;
+    width: 4em;
+    margin: .5em;
+    border: 1px solid black;
+}
+.color-selector .color.unchecked {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+.color-selector .color.unchecked input[type=radio].color-radio + label.color-radio {
+    border-radius: 4px;
+}
+.color-selector .color.checked {
+    background-color: #CCCCCC;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+.color-selector .color.checked input[type=radio].color-radio + label.color-radio {
+    border-radius: 8px;
+}
+
+label.color-radio span {
+    display: block;
+    text-align: center;
+}
+
+.email input[type=text] {
+    width:30em;
+}
+

@@ -1,0 +1,189 @@
+<div ng-class="{in:isOpen(),fade:animation()}"
+     ng-controller="attributeModifyCtrl">
+    <div ng-if="popover"
+         class="arrow"></div>
+    <div class="popover-inner">
+        <header style="width:100%">
+            <button ng-if="popover"
+                    ng-click="cancel()"
+                    class="close-icon">
+                &times;
+            </button>
+            <span ng-if="attributeModificationService.newAttribute">Add New Attribute</span>
+            <span ng-if="!attributeModificationService.newAttribute">
+                {{attributeModificationService.attributeGroup.groupLabel}}
+            </span>
+        </header>
+        <div class="form-group">
+            <!--div class="form-group" ng-class="{'has-error':whatever.error}">
+                {{$parent.newAttribute.error || "&nbsp;"}}
+            </div-->
+            <div class="form-group">
+                <div>
+                    <label for="attribute_group_type">Type:</label>
+                    <select ng-options="item.value as item.label for item in attributeModificationService.attributeGroupTypes"
+                            ng-model="attributeModificationService.attributeGroup.type"
+                            ng-change="attributeModificationService.updateAttributeGroupFields()"
+                            id="attribute_group_type">
+                    </select>
+                </div>
+                <div>
+                    <label for="group_label">Label:</label>
+                    <input ng-model="attributeModificationService.attributeGroup.groupLabel"
+                           ng-disabled="!attributeModificationService.attributeGroup.type"
+                           class="attribute-label"
+                           type="text"
+                           id="group_label"/>
+                </div>
+                <div>
+                    <label for="select_label">Select Label:</label>
+                    <input ng-model="attributeModificationService.attributeGroup.selectLabel"
+                           ng-disabled="!attributeModificationService.attributeGroup.type"
+                           class="attribute-label"
+                           type="text"
+                           id="select_label"/>
+                </div>
+                <div>
+                    <label for="add_label">Add Label:</label>
+                    <input ng-model="attributeModificationService.attributeGroup.addLabel"
+                           ng-disabled="!attributeModificationService.attributeGroup.type"
+                           class="attribute-label"
+                           type="text"
+                           id="add_label"/>
+                </div>
+                <div>
+                    <label for="input_label">Input Label:</label>
+                    <input ng-model="attributeModificationService.attributeGroup.inputLabel"
+                           ng-disabled="!attributeModificationService.attributeGroup.type"
+                           class="attribute-label"
+                           type="text"
+                           id="input_label"/>
+                </div>
+                <div>
+                    <label for="group_classes">CSS Classes:</label>
+                    <input ng-model="attributeModificationService.attributeGroup.class"
+                           ng-disabled="!attributeModificationService.attributeGroup.type"
+                           class="classes"
+                           type="text"
+                           id="group_classes"/>
+                </div>
+            </div>
+            <div class="form-group input-fields">
+                <header>Input Fields</header>
+                <div ng-repeat="attribute in attributeModificationService.attributeGroup.attributes"
+                     class="input-field accordion">
+                    <header ng-class="{'collapsed':!attribute.expanded,
+                                    'expanded':attribute.expanded,
+                                    'oddRow':($index % 2 == 1),
+                                    'evenRow':($index % 2 == 0)}"
+                            ng-click="toggleExpanded(attribute)"
+                            class="clickable">
+                        <span>{{attribute.name}}</span>
+                    </header>
+                    <div ng-if="attribute.expanded"
+                         ng-class="{'oddRow':($index % 2 == 1),
+                                    'evenRow':($index % 2 == 0)}">
+                        <div>
+                            <label for="attribute_type_{{$index}}">Type:</label>
+                            <select ng-options="item.value as item.label for item in attributeModificationService.attributeTypes"
+                                    ng-model="attribute.template"
+                                    ng-change="attributeModificationService.updateAttributeFields()"
+                                    id="attribute_type_{{$index}}">
+                            </select>
+                        </div>
+                        <div>
+                            <label for="attribute_name_{{$index}}">Name:</label>
+                            <input class="attribute-name" type="text" id="attribute_name_{{$index}}"
+                                   ng-model="attribute.name"/>
+                        </div>
+                        <div>
+                            <label for="attribute_label_{{$index}}">Label:</label>
+                            <input class="attribute-label" type="text" id="attribute_label_{{$index}}"
+                                   ng-model="attribute.label"/>
+                        </div>
+                        <div>
+                            <label for="attribute_class_{{$index}}">CSS Classes:</label>
+                            <input class="classes" type="text" id="attribute_class_{{$index}}"
+                                   ng-model="attribute.class"/>
+                        </div>
+                        <div>
+                            <label for="attribute_label_class_{{$index}}">Label CSS Classes:</label>
+                            <input class="classes" type="text" id="attribute_label_class_{{$index}}"
+                                   ng-model="attribute.labelClass"/>
+                        </div>
+                        <div>
+                            <label for="attribute_input_class_{{$index}}">Input CSS Classes:</label>
+                            <input class="classes" type="text" id="attribute_input_class_{{$index}}"
+                                   ng-model="attribute.inputClass"/>
+                        </div>
+                        <div ng-if="(attribute.template === 'text')">
+                            <label for="attribute_placeholder_{{$index}}">Placeholder:</label>
+                            <input class="classes" type="text" id="attribute_placeholder_{{$index}}"
+                                   ng-model="attribute.placeholder"/>
+                        </div>
+                        <div ng-if="((attribute.template === 'dropdown') || (attribute.template === 'radio'))">
+                            <header ng-class="{'collapsed':!attribute.valueList.expanded,
+                                        'expanded':attribute.valueList.expanded}"
+                                    ng-click="toggleExpanded(attribute, 'valuesExpanded')"
+                                    class="clickable">
+                                <span>Values</span>
+                            </header>
+                            <div ng-if="(attribute.valuesExpanded &&
+                                    ((attribute.template === 'dropdown') || (attribute.template === 'radio')))"
+                                 ng-repeat="value in attribute.values">
+                                <header ng-class="{'collapsed':!value.expanded,
+                                        'expanded':value.expanded}"
+                                        ng-click="toggleExpanded(value)"
+                                        class="clickable">
+                                    <span>{{value.value | NA}} / {{value.label | NA}}</span>
+                                </header>
+                                <div ng-show='value.expanded'>
+                                    <label for="attribute_value_value_{{$index}}">Value:</label>
+                                    <input class="attribute-label" type="text" id="attribute_value_value_{{$index}}"
+                                           ng-model="value.value"/>
+                                </div>
+                                <div ng-show='value.expanded'>
+                                    <label for="attribute_value_label_{{$index}}">Label:</label>
+                                    <input class="attribute-label" type="text" id="attribute_value_label_{{$index}}"
+                                           ng-model="value.label"/>
+                                </div>
+                                <div ng-show='value.expanded'>
+                                    <label for="attribute_value_class_{{$index}}">CSS Classes:</label>
+                                    <input class="classes" type="text" id="attribute_value_class_{{$index}}"
+                                           ng-model="value.class"/>
+                                </div>
+                                <div ng-show='value.expanded'>
+                                    <label for="attribute_value_message_{{$index}}">Message:</label>
+                                    <input class="classes" type="text" id="attribute_value_message_{{$index}}"
+                                           ng-model="value.message"/>
+                                </div>
+                                <div ng-show='value.expanded'>
+                                    <label for="attribute_value_message_class_{{$index}}">Message CSS Classes:</label>
+                                    <input class="classes" type="text" id="attribute_value_message_class_{{$index}}"
+                                           ng-model="value.messageClass"/>
+                                </div>
+                            </div>
+                            <div ng-if="((attribute.type === 'SELECT') || (attribute.type === 'SELECT_ONE'))"
+                                 ng-click="attributeModificationService.addSelectValue(attribute)"
+                                 class="btn btn-primary">
+                                Add Value
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popover-footer">
+            <button class="btn btn-primary"
+                    ng-class="{'disabled':!attributeModificationService.isDoneButtonEnabled()}"
+                    ng-click="done()"
+                    ng-disabled="!attributeModificationService.isDoneButtonEnabled()">
+                Done
+            </button>
+            <button class="btn btn-default"
+                    ng-click="cancel()">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>

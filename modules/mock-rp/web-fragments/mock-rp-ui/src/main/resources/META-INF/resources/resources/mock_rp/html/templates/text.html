@@ -1,0 +1,14 @@
+<div ng-if="attribute.label"
+     class="input-label {{attribute.labelClass}}">
+    {{attribute.label}}
+</div>
+<div class="input-field {{attribute.inputClass}}">
+    <input type="text"
+           ng-model="attribute.value"
+           id="{{attribute.id}}"
+           placeholder="{{attribute.placeholder}}"/>
+</div>
+<div ng-if="attribute.message"
+     class="input-field">
+    {{attribute.message}}
+</div>

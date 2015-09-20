@@ -1,0 +1,172 @@
+<div ng-controller="mockRPConfigCtrl">
+    <div class="configure">
+        <header>Config Panel</header>
+        <section ng-hide="attributeModificationService.modifying"
+                 class="accordion">
+            <header ng-class="{'collapsed':!dataService.pageHeader.expanded,
+                                'expanded':dataService.pageHeader.expanded}"
+                    ng-click="dataService.toggleExpanded(dataService.pageHeader)"
+                    class="clickable">
+                <span>Page Header</span>
+            </header>
+            <div ng-show='dataService.pageHeader.expanded'>
+                <div ng-repeat="div in mockRPDataService.pageHeader.divs" class="section-content">
+                    Enter HTML:<br/>
+                    <textarea rows="4"
+                              cols="50"
+                              ng-model="div.html"
+                              ng-change="dataService.updateTemplate(div)">
+                    </textarea>
+                </div>
+                <div ng-click="dataService.addSubSection(mockRPDataService.pageHeader)"
+                     class="btn btn-primary config-add-button">
+                    Add Header Section
+                </div>
+            </div>
+        </section>
+        <section ng-hide="attributeModificationService.modifying"
+                 class="accordion">
+            <header ng-class="{'collapsed':!dataService.contentHeader.expanded,
+                                'expanded':dataService.contentHeader.expanded}"
+                    ng-click="dataService.toggleExpanded(dataService.contentHeader)"
+                    class="clickable">
+                <span>Content Header</span>
+            </header>
+            <div ng-show='dataService.contentHeader.expanded'>
+                <div ng-repeat="div in mockRPDataService.contentHeader.divs" class="section-content">
+                    Enter HTML:<br/>
+                    <textarea rows="4"
+                              cols="50"
+                              ng-model="div.html"
+                              ng-change="dataService.updateTemplate(div)">
+                    </textarea>
+                </div>
+                <div ng-click="dataService.addSubSection(mockRPDataService.contentHeader)"
+                     class="btn btn-primary config-add-button">
+                    Add Header Section
+                </div>
+            </div>
+        </section>
+        <section ng-hide="attributeModificationService.modifying"
+                 class="accordion">
+            <header ng-class="{'collapsed':!dataService.intro.expanded,
+                                'expanded':dataService.intro.expanded}"
+                    ng-click="dataService.toggleExpanded(dataService.intro)"
+                    class="clickable">
+                <span>Intro</span>
+            </header>
+            <div ng-show='dataService.intro.expanded'>
+                <div ng-repeat="div in mockRPDataService.intro.divs" class="section-content">
+                    Enter HTML:<br/>
+                    <textarea rows="4"
+                              cols="50"
+                              ng-model="div.html"
+                              ng-change="dataService.updateTemplate(div)">
+                    </textarea>
+                </div>
+                <div ng-click="dataService.addSubSection(mockRPDataService.intro)"
+                     class="btn btn-primary config-add-button">
+                    Add Intro Section
+                </div>
+            </div>
+        </section>
+        <section ng-hide="attributeModificationService.modifying"
+                 class="accordion">
+            <header ng-class="{'collapsed':!dataService.attributeGroups.expanded,
+                                'expanded':dataService.attributeGroups.expanded}"
+                    ng-click="dataService.toggleExpanded(dataService.attributeGroups)"
+                    class="clickable">
+                <span>Attributes</span>
+            </header>
+            <div ng-show='dataService.attributeGroups.expanded' class="accordion">
+                <header ng-repeat="attributeGroup in mockRPDataService.attributeGroups"
+                     ng-click="modifyAttribute(mockRPDataService.attributeGroups, attributeGroup)"
+                     class="clickable">
+                    {{attributeGroup.groupLabel}} ({{attributeGroup.type}})
+                </header>
+                <div ng-click="modifyAttribute(mockRPDataService.attributeGroups)"
+                     class="btn btn-primary config-add-button">
+                    Add Attribute
+                </div>
+            </div>
+        </section>
+        <section ng-hide="attributeModificationService.modifying"
+                 class="accordion">
+            <header ng-class="{'collapsed':!dataService.actions.expanded,
+                                'expanded':dataService.actions.expanded}"
+                    ng-click="dataService.toggleExpanded(dataService.actions)"
+                    class="clickable">
+                <span>Actions</span>
+            </header>
+            <div ng-show='dataService.actions.expanded'>
+                <div ng-repeat="div in mockRPDataService.actions.divs" class="section-content">
+                    Enter HTML:<br/>
+                    <textarea rows="4"
+                              cols="50"
+                              ng-model="div.html"
+                              ng-change="dataService.updateTemplate(div)">
+                    </textarea>
+                </div>
+                <div ng-click="dataService.addSubSection(mockRPDataService.actions)"
+                     class="btn btn-primary config-add-button">
+                    Add Action Section
+                </div>
+            </div>
+        </section>
+        <section ng-hide="attributeModificationService.modifying"
+                 class="accordion">
+            <header ng-class="{'collapsed':!dataService.contentFooter.expanded,
+                                'expanded':dataService.contentFooter.expanded}"
+                    ng-click="dataService.toggleExpanded(dataService.contentFooter)"
+                    class="clickable">
+                <span>Content Footer</span>
+            </header>
+            <div ng-show='dataService.contentFooter.expanded'>
+                <div ng-repeat="div in mockRPDataService.contentFooter.divs" class="section-content">
+                    Enter HTML:<br/>
+                    <textarea rows="4"
+                              cols="50"
+                              ng-model="div.html"
+                              ng-change="dataService.updateTemplate(div)">
+                    </textarea>
+                </div>
+                <div ng-click="dataService.addSubSection(mockRPDataService.contentFooter)"
+                     class="btn btn-primary config-add-button">
+                    Add Footer Section
+                </div>
+            </div>
+        </section>
+        <section ng-hide="attributeModificationService.modifying"
+                 class="accordion">
+            <header ng-class="{'collapsed':!dataService.pageFooter.expanded,
+                                'expanded':dataService.pageFooter.expanded,
+                                'oddRow':($index % 2 == 1),
+                                'evenRow':($index % 2 == 0)}"
+                    ng-click="dataService.toggleExpanded(dataService.pageFooter)"
+                    class="clickable">
+                <span>Page Footer</span>
+            </header>
+            <div ng-show='dataService.pageFooter.expanded'>
+                <div ng-repeat="div in mockRPDataService.pageFooter.divs" class="section-content">
+                    Enter HTML:<br/>
+                    <textarea rows="4"
+                              cols="50"
+                              ng-model="div.html"
+                              ng-change="dataService.updateTemplate(div)">
+                    </textarea>
+                </div>
+                <div ng-click="dataService.addSubSection(mockRPDataService.pageFooter)"
+                     class="btn btn-primary config-add-button">
+                    Add Footer Section
+                </div>
+            </div>
+        </section>
+        <section ng-show="attributeModificationService.modifying"
+                 ng-include="resourceUrlsService.resourceUrls.mockRPConfig.attributeModify"
+                 ng-controller="attributeModifyCtrl">
+        </section>
+    </div>
+    <div ng-include src="resourceUrlsService.resourceUrls.mockRP"
+         style="width:75%;display:inline-block">
+    </div>
+</div>

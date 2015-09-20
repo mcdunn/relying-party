@@ -1,0 +1,55 @@
+<div ng-controller="mockRPCtrl">
+    <header ng-if="dataService.pageHeader && dataService.pageHeader.divs" class="page-header">
+        <div ng-repeat="div in dataService.pageHeader.divs"
+             class="{{div.class}}"
+             ng-include="div.template">
+        </div>
+    </header>
+    <article class="container">
+        <header ng-if="dataService.contentHeader && dataService.contentHeader.divs"
+                class="content-header">
+            <div ng-repeat="div in dataService.contentHeader.divs"
+                 class="{{div.class}}"
+                 ng-include="div.template">
+            </div>
+        </header>
+        <section ng-if="dataService.intro && dataService.intro.divs"
+                 class="intro"
+                 role="heading">
+            <div ng-repeat="div in dataService.intro.divs"
+                 class="{{div.class}}"
+                 ng-include="div.template">
+            </div>
+        </section>
+        <section ng-if="dataService.attributeGroups"
+                 class="attributes"
+                 role="main">
+            <section ng-repeat="attributeGroup in dataService.attributeGroups"
+                ng-include="dataService.templates[attributeGroup.template]"
+                class="newline">
+            </section>
+        </section>
+        <section ng-if="dataService.actions && dataService.actions.divs"
+                 class="actions"
+                 role="toolbar">
+            <div ng-repeat="div in dataService.actions.divs"
+                 class="{{div.class}}"
+                 ng-include="div.template">
+            </div>
+        </section>
+        <footer ng-if="dataService.contentFooter && dataService.contentFooter.divs"
+                class="content-footer">
+            <div ng-repeat="div in dataService.contentFooter.divs"
+                 class="{{div.class}}"
+                 ng-include="div.template">
+            </div>
+        </footer>
+    </article>
+    <footer ng-if="dataService.pageFooter && dataService.pageFooter.divs"
+            class="page-footer">
+        <div ng-repeat="div in dataService.pageFooter.divs"
+             class="{{div.class}}"
+             ng-include="div.template">
+        </div>
+    </footer>
+</div>

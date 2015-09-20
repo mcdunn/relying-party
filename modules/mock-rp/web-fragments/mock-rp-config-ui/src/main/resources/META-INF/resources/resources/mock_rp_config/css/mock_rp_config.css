@@ -1,0 +1,93 @@
+
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.configure {
+    width: 24%;
+    height:100%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    background-color: #DDDDDD;
+    border-left: 2px solid #888888;
+    border-right: 2px solid #888888;
+}
+
+.configure > header {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #888888;
+    background-color:#DDDDDD;
+}
+
+.accordion {
+    border-bottom: 2px solid #888888;
+}
+
+.accordion > header {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.accordion header span {
+    width: 10em;
+    display: inline-block;
+    padding: .25em;}
+
+.accordion header.collapsed:before {
+    margin-right: 1em;
+    font-family: "icon-font";
+    content: "\f078";
+    color: black;
+}
+
+.accordion header.collapsed:after {
+    margin-left: 1em;
+    font-family: "icon-font";
+    content: "\f078";
+    color: black;
+}
+
+.accordion header.expanded:before {
+    margin-right: 1em;
+    font-family: "icon-font";
+    content: "\f077";
+    color: black;
+}
+
+.accordion header.expanded:after {
+    margin-left: 1em;
+    font-family: "icon-font";
+    content: "\f077";
+    color: black;
+}
+
+.accordion.input-field {
+    border: none;
+}
+
+.configure .section-content {
+    border-top: 1px solid #888888;
+}
+
+.config-add-button {
+    margin: .5em;
+}
+
+.evenRow {
+//    background-color:#CCCCCC;
+}
+
+.popover-inner > header {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.input-fields > header {
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 2px solid #888888;
+}

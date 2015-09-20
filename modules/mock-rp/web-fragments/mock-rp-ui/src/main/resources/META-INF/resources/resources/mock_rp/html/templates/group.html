@@ -1,0 +1,36 @@
+<div class="attribute-group {{attributeGroup.class}}">
+    <div ng-if="attributeGroup.groupLabel"
+         class="attribute-group-label">
+        {{attributeGroup.groupLabel}}
+    </div>
+
+    <div ng-if="attributeGroup.selectLabel && !attributeGroup.adding"
+         class="attribute-group-select-label">
+        {{attributeGroup.selectLabel}}
+    </div>
+    <div ng-if="!attributeGroup.adding"
+         ng-init="attribute = attributeGroup"
+         ng-include="dataService.templates.dropdown"
+         class="attribute-group-select">
+
+    </div>
+    <div ng-if="attributeGroup.addLabel && !attributeGroup.adding"
+         class="attribute-group-add-label"
+         ng-click="add(attributeGroup)">
+            {{attributeGroup.addLabel}}
+    </div>
+
+    <div ng-if="attributeGroup.adding"
+         class="attribute-group-input-label">
+        {{attributeGroup.inputLabel}}
+    </div>
+    <div ng-if="attributeGroup.adding"
+         ng-repeat="attribute in attributeGroup.attributes"
+         ng-include="dataService.templates[attribute.template]"
+         class="{{attribute.class}}">
+    </div>
+    <div ng-if="attributeGroup.message && attributeGroup.adding"
+         class="message {{attributeGroup.class}}">
+        {{attributeGroup.message}}
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div ng-if="attribute.label"
+     class="input-label {{attribute.labelClass}}">
+    {{attribute.label}}
+</div>
+<div class="color-selector">
+    <div ng-if="attribute.values"
+         ng-repeat="value in attribute.values"
+         ng-class="{'checked':attribute.value == value.value,
+                    'unchecked':attribute.value != value.value}"
+         class="color {{attribute.inputClass}}">
+        <input type="radio"
+               name="color_selector"
+               class="color-radio {{value.class}}"
+               value="{{value.value}}"
+               id="{{value.id}}"
+                ng-model="attribute.value"/>
+        <label for="{{value.id}}"
+               class="color-radio {{value.class}}">
+            <span>{{value.label}}</span>
+        </label>
+        <div class="input-field message"
+             ng-if="value.message">
+            {{value.message}}
+        </div>
+    </div>
+</div>
+<div ng-if="attribute.message"
+     class="input-field">
+    {{attribute.message}}
+</div>

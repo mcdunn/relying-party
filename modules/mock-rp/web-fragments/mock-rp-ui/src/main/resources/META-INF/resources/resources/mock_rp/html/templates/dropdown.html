@@ -1,0 +1,14 @@
+<div ng-if="attribute.label"
+     class="input-label {{attribute.labelClass}}">
+    {{attribute.label}}
+</div>
+<div class="input-field {{attribute.inputClass}}">
+    <select ng-options="item.value as item.label for item in attribute.values"
+           ng-model="attribute.value"
+           id="{{attribute.id}}">
+    </select>
+</div>
+<div ng-if="attribute.message"
+     class="input-field">
+    {{attribute.message}}
+</div>

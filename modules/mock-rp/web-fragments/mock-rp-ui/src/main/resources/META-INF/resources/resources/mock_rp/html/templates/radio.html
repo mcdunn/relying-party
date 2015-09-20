@@ -1,0 +1,23 @@
+<div ng-if="attribute.label"
+     class="input-label {{attribute.labelClass}}">
+    {{attribute.label}}
+</div>
+<div ng-if="attribute.values"
+     ng-repeat="value in attribute.values"
+     class="input-field {{value.class}}">
+    <input type="radio"
+           ng-model="value.value"
+           id="{{attribute.id}}_{{value.value}}"
+           name="{{attribute.id}}"/>
+    <label for="{{attribute.id}}_{{value.value}}">
+        {{value.label}}
+    </label>
+    <div class="input-field message {{value.messageClass}}"
+         ng-if="value.message">
+        {{value.message}}
+    </div>
+</div>
+<div ng-if="attribute.message"
+     class="input-field">
+    {{attribute.message}}
+</div>
