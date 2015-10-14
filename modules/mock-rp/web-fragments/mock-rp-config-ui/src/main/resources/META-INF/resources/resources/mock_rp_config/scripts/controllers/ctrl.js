@@ -30,6 +30,21 @@ angular
 
             $scope.mockRPDataService = mockRPDataService;
 
+            // TODO: create attributeDragService and move this there
+            $scope.attributeDragOver = function(index, object, event) {
+                if (object.id != event.data.id) {
+                    $scope.mockRPDataService.removeAttributeGroup(event.data);
+                    $scope.mockRPDataService.insertAttributeGroup(event.data, index);
+                }
+            };
+
+            // TODO: create attributeDragService and move this there
+            $scope.attributeDrop = function(index, object, event) {
+                $scope.mockRPDataService.removeAttributeGroup(event.data);
+                $scope.mockRPDataService.insertAttributeGroup(event.data, index);
+            };
+
+            // TODO: move this to attributeModificationService
             $scope.modifyAttribute = function(attributeGroups, attributeGroup) {
                 $scope.attributeModificationService.startModifying(false, attributeGroups, attributeGroup);
 /*                var scope = $scope.$new();

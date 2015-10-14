@@ -1,3 +1,4 @@
+<!-- group.html -->
 <div class="attribute-group {{attributeGroup.class}}">
     <div ng-if="attributeGroup.groupLabel"
          class="attribute-group-label">
@@ -12,12 +13,11 @@
          ng-init="attribute = attributeGroup"
          ng-include="dataService.templates.dropdown"
          class="attribute-group-select">
-
     </div>
     <div ng-if="attributeGroup.addLabel && !attributeGroup.adding"
          class="attribute-group-add-label"
          ng-click="add(attributeGroup)">
-            {{attributeGroup.addLabel}}
+        {{attributeGroup.addLabel}}
     </div>
 
     <div ng-if="attributeGroup.adding"

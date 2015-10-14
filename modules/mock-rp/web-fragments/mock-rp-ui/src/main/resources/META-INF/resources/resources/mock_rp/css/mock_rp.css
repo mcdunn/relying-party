@@ -14,6 +14,98 @@
     display:none;
 }
 
+.color-red {
+    color: red;
+}
+
+.color-black {
+    color: black;
+}
+
+.color-green {
+    color: green;
+}
+
+.color-blue {
+    color: blue;
+}
+
+.color-yellow {
+    color: yellow;
+}
+
+.background-red {
+    background-color: red;
+}
+
+.background-black {
+    background-color: black;
+}
+
+.background-green {
+    background-color: green;
+}
+
+.background-blue {
+    background-color: blue;
+}
+
+.background-yellow {
+    background-color: yellow;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.font-size-1em {
+    font-size: 1em;
+}
+
+.font-size-2em {
+    font-size: 2em;
+}
+
+.pad-top-1em {
+    padding-top: 1em;
+}
+
+.pad-right-1em {
+    padding-right: 1em;
+}
+
+.pad-bottom-1em {
+    padding-bottom: 1em;
+}
+
+.pad-left-1em {
+    padding-left: 1em;
+}
+
+.pad-top-2em {
+    padding-top: 2em;
+}
+
+.pad-right-2em {
+    padding-right: 2em;
+}
+
+.pad-bottom-2em {
+    padding-bottom: 2em;
+}
+
+.pad-left-2em {
+    padding-left: 2em;
+}
+
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:#777;
 }
@@ -233,6 +325,7 @@ text-decoration:underline;
 }
 .color-selector .color {
     height: 5em;
+    vertical-align: bottom;
 }
 .color.black {
     background-color: #000000;

@@ -13,7 +13,9 @@ angular
         'ui.bootstrap',
         'moPagination',
         'core',
-        'mock_rp'
+        'mock_rp',
+        'ngAnimate',
+        'ngDraggable'
     ])
     .config(
         function($httpProvider, moPaginationConfig) {

@@ -81,7 +81,16 @@
             <div ng-show='dataService.attributeGroups.expanded' class="accordion">
                 <header ng-repeat="attributeGroup in mockRPDataService.attributeGroups"
                      ng-click="modifyAttribute(mockRPDataService.attributeGroups, attributeGroup)"
-                     class="clickable">
+                     class="clickable"
+                     ng-drop="true"
+                     not-ng-drag-enter="attributeDragEnter($index, attributeGroup, $event)"
+                     not-ng-drag-leave="attributeDragLeave($index, attributeGroup, $event)"
+                     ng-drag-over="attributeDragOver($index, attributeGroup, $event)"
+                     not-ng-drag-success="attributeDrag($index, $data, $event)"
+                     ng-drop-success="attributeDrop($index, $data, $event)"
+                     move-element="false"
+                     ng-drag="true"
+                     ng-drag-data="attributeGroup">
                     {{attributeGroup.groupLabel}} ({{attributeGroup.type}})
                 </header>
                 <div ng-click="modifyAttribute(mockRPDataService.attributeGroups)"

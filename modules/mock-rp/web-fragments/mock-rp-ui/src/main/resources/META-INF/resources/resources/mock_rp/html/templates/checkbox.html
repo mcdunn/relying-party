@@ -1,4 +1,4 @@
-<!-- radio.html -->
+<!-- checkbox.html -->
 <div ng-if="attribute.label"
      class="input-label {{attribute.labelClass}}">
     {{attribute.label}}
@@ -6,7 +6,7 @@
 <div ng-if="attribute.values"
      ng-repeat="value in attribute.values"
      class="input-field {{value.class}}">
-    <input type="radio"
+    <input type="checkbox"
            ng-model="value.value"
            id="{{attribute.id}}_{{value.value}}"
            name="{{attribute.id}}"/>

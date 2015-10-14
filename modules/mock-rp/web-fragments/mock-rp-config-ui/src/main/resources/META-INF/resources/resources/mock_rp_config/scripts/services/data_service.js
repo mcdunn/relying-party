@@ -39,56 +39,6 @@ angular
                 section.divs.push({'html':'','template':template,'class':''});
             };
 
-            this.addAttribute = function(attributes) {
-                attributes.push(
-                    {
-                        'id':'full_name_group',
-                        'groupLabel':'Full Name',
-                        'selectLabel':'Select Full Name:',
-                        'addLabel':'Add New Full Name',
-                        'inputLabel':'Full Name:',
-                        'values':[
-                            {'value':'MCD', 'label':'Maxxx C. Dxxxxxx'}
-                        ],
-                        'value':'MCD',
-                        'template':'group',
-                        'class':'attribute-group name',
-                        'attributes':[
-                            {
-                                'id':'full_name_first',
-                                'template':'text',
-                                'class':'inline first-name',
-                                'labelClass':'inline-block',
-                                'inputClass':'inline',
-                                'placeholder':'First',
-                                'value':'',
-                                'name':'fname'
-                            },
-                            {
-                                'id':'full_name_middle',
-                                'template':'text',
-                                'class':'inline middle-name',
-                                'labelClass':'hidden',
-                                'inputClass':'inline',
-                                'placeholder':'Middle',
-                                'value':'',
-                                'name':'mname'
-                            },
-                            {
-                                'id':'full_name_last',
-                                'template':'text',
-                                'class':'inline last-name',
-                                'labelClass':'hidden',
-                                'inputClass':'inline',
-                                'placeholder':'Last',
-                                'value':'',
-                                'name':'lname'
-                            }
-                        ]
-                    }
-                );
-            };
-
             this.init = function(resourcesUrl) {
                 this.resourcesUrl = resourcesUrl;
                 this.templatesUrl = this.resourcesUrl + 'mock_rp/html/templates/';
@@ -161,13 +111,13 @@ angular
             };
 
             this.deleteObject = function(whatever) {
-                restService.deleteWhatever(whatever.id).then(
-                    function(deleteResponse) {
+//                restService.deleteWhatever(whatever.id).then(
+//                    function(deleteResponse) {
                         coreDataService.removeObject(whatever);
-                    }
-                    , function(httpErrorCode) {
-                    }
-                );
+//                    }
+//                    , function(httpErrorCode) {
+//                    }
+//                );
             };
 
             this.saveObjects = function(objects) {

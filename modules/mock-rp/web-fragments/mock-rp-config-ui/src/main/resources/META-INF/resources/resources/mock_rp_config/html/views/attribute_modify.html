@@ -21,7 +21,7 @@
             <div class="form-group">
                 <div>
                     <label for="attribute_group_type">Type:</label>
-                    <select ng-options="item.value as item.label for item in attributeModificationService.attributeGroupTypes"
+                    <select ng-options="item.value as item.label for item in attributeModificationService.lookupService.attributeGroupTypes"
                             ng-model="attributeModificationService.attributeGroup.type"
                             ng-change="attributeModificationService.updateAttributeGroupFields()"
                             id="attribute_group_type">
@@ -67,6 +67,14 @@
                            type="text"
                            id="group_classes"/>
                 </div>
+                <div>
+                    <label for="group_message">Message:</label>
+                    <input ng-model="attributeModificationService.attributeGroup.message"
+                           ng-disabled="!attributeModificationService.attributeGroup.type"
+                           class="message"
+                           type="text"
+                           id="group_message"/>
+                </div>
             </div>
             <div class="form-group input-fields">
                 <header>Input Fields</header>
@@ -85,7 +93,8 @@
                                     'evenRow':($index % 2 == 0)}">
                         <div>
                             <label for="attribute_type_{{$index}}">Type:</label>
-                            <select ng-options="item.value as item.label for item in attributeModificationService.attributeTypes"
+                            <select ng-options="item.value as item.label for item in
+                                            attributeModificationService.lookupService.attributeTypes"
                                     ng-model="attribute.template"
                                     ng-change="attributeModificationService.updateAttributeFields()"
                                     id="attribute_type_{{$index}}">
@@ -121,15 +130,21 @@
                             <input class="classes" type="text" id="attribute_placeholder_{{$index}}"
                                    ng-model="attribute.placeholder"/>
                         </div>
-                        <div ng-if="((attribute.template === 'dropdown') || (attribute.template === 'radio'))">
+                        <div>
+                            <label for="attribute_message_{{$index}}">Message:</label>
+                            <input class="classes" type="text" id="attribute_message_{{$index}}"
+                                   ng-model="attribute.message"/>
+                        </div>
+                        <div ng-if="((attribute.template === 'checkbox') || (attribute.template === 'dropdown') ||
+                                    (attribute.template === 'radio'))">
                             <header ng-class="{'collapsed':!attribute.valueList.expanded,
                                         'expanded':attribute.valueList.expanded}"
                                     ng-click="toggleExpanded(attribute, 'valuesExpanded')"
                                     class="clickable">
                                 <span>Values</span>
                             </header>
-                            <div ng-if="(attribute.valuesExpanded &&
-                                    ((attribute.template === 'dropdown') || (attribute.template === 'radio')))"
+                            <div ng-if="(attribute.valuesExpanded && ((attribute.template === 'checkbox') ||
+                                        (attribute.template === 'dropdown') || (attribute.template === 'radio')))"
                                  ng-repeat="value in attribute.values">
                                 <header ng-class="{'collapsed':!value.expanded,
                                         'expanded':value.expanded}"
@@ -163,7 +178,8 @@
                                            ng-model="value.messageClass"/>
                                 </div>
                             </div>
-                            <div ng-if="((attribute.type === 'SELECT') || (attribute.type === 'SELECT_ONE'))"
+                            <div ng-if="((attribute.template === 'checkbox') || (attribute.template === 'dropdown') ||
+                                        (attribute.template === 'radio'))"
                                  ng-click="attributeModificationService.addSelectValue(attribute)"
                                  class="btn btn-primary">
                                 Add Value

@@ -1,6 +1,7 @@
 <script src="${requestScope.baseUrl}resources/mock_rp_config/scripts/mock_rp_config.js"></script>
 <script src="${requestScope.baseUrl}resources/mock_rp_config/scripts/services/data_service.js"></script>
 <script src="${requestScope.baseUrl}resources/mock_rp_config/scripts/services/error_service.js"></script>
+<script src="${requestScope.baseUrl}resources/mock_rp_config/scripts/services/lookup_service.js"></script>
 <script src="${requestScope.baseUrl}resources/mock_rp_config/scripts/services/rest_service.js"></script>
 <script src="${requestScope.baseUrl}resources/mock_rp_config/scripts/services/rest_config_service.js"></script>
 <script src="${requestScope.baseUrl}resources/mock_rp_config/scripts/services/validation_service.js"></script>

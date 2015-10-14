@@ -28,7 +28,7 @@ angular
             this.pageHeader = {};
             this.contentHeader = {};
             this.intro = {};
-            this.attributeGroups = {};
+            this.attributeGroups = [];
             this.actions = {};
             this.contentFooter = {};
             this.pageFooter = {};
@@ -462,6 +462,24 @@ angular
                 }
             };
 
+            //TODO: re-write this so there is an attribute data service
+            this.removeAttributeGroup = function(attributeGroup) {
+                var index = this.attributeGroups.indexOf(attributeGroup);
+                this.attributeGroups.splice(index, 1);
+                for (var i = 0; i < this.attributeGroups.length; i++) {
+                    this.attributeGroups[i].index = i;
+                }
+            };
+
+            //TODO: re-write this so there is an attribute data service
+            this.insertAttributeGroup = function(attributeGroup, index) {
+                this.attributeGroups.splice(index, 0, attributeGroup);
+                for (var i = 0; i < this.attributeGroups.length; i++) {
+                    this.attributeGroups[i].index = i;
+                }
+            };
+
+
             // TODO: this is very messy and could consume tons of resources!
             this.updateTemplate = function(div) {
                 if (!div.revision) {
@@ -482,6 +500,7 @@ angular
                 this.templates.radio = this.templatesUrl + 'radio.html';
                 this.templates.dropdown = this.templatesUrl + 'dropdown.html';
                 this.templates.color = this.templatesUrl + 'color.html';
+                this.templates.checkbox = this.templatesUrl + 'checkbox.html';
 
                 this.setPageHeader();
                 this.setContentHeader();
