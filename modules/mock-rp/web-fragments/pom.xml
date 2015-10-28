@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<name>Mock RP - Web Fragments</name>
-    <groupId>com.markcdunn.mock-rp</groupId>
+    <groupId>com.markcdunn.relying-party.mock-rp</groupId>
 	<artifactId>web-fragments</artifactId>
 	<packaging>pom</packaging>
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.markcdunn</groupId>
+		<groupId>com.markcdunn.relying-party</groupId>
 		<artifactId>mock-rp</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
@@ -19,7 +19,7 @@
     </modules>
 
 	<build>
-		<finalName>web-fragments</finalName>
+		<finalName>relying-party-mock-rp-web-fragments</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>

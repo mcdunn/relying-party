@@ -2,13 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<name>Mock RP - Web Fragments - Mock RP UI</name>
-    <groupId>com.markcdunn.mock-rp.web-fragments</groupId>
+    <groupId>com.markcdunn.relying-party.mock-rp.web-fragments</groupId>
 	<artifactId>mock-rp-ui</artifactId>
 	<packaging>jar</packaging>
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.markcdunn.mock-rp</groupId>
+		<groupId>com.markcdunn.relying-party.mock-rp</groupId>
 		<artifactId>web-fragments</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
@@ -84,7 +84,7 @@
     </dependencies>
 
 	<build>
-		<finalName>mock-rp-ui</finalName>
+		<finalName>relying-party-mock-rp-web-fragment-mock-rp-ui</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>

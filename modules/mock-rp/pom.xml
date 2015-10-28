@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<name>Mock RP</name>
-    <groupId>com.markcdunn</groupId>
+    <groupId>com.markcdunn.relying-party</groupId>
 	<artifactId>mock-rp</artifactId>
 	<packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.markcdunn</groupId>
+		<groupId>com.markcdunn.relying-party</groupId>
 		<artifactId>modules</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
@@ -34,7 +34,7 @@
     </modules>
 
 	<build>
-		<finalName>mock-rp</finalName>
+		<finalName>relying-party-mock-rp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
